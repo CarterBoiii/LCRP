@@ -38,3 +38,31 @@ D:\Dev\Launchers\LCRP\Login HWID\bin\Debug\System.Numerics.Vectors.dll
 D:\Dev\Launchers\LCRP\Login HWID\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\Dev\Launchers\LCRP\Login HWID\bin\Debug\MySql.Data.xml
 D:\Dev\Launchers\LCRP\Login HWID\obj\Debug\Login_HWID.Launcher.resources
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\Login HWID.exe.config
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\Login HWID.exe
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\Login HWID.pdb
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\MySql.Data.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\Google.Protobuf.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\Zstandard.Net.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\BouncyCastle.Crypto.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\Ubiety.Dns.Core.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\Renci.SshNet.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\System.Memory.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\System.Buffers.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\K4os.Compression.LZ4.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\K4os.Hash.xxHash.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\System.Numerics.Vectors.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Dev\Launchers\LCRP\Launcher\Launcher\bin\Debug\MySql.Data.xml
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login HWID.csprojAssemblyReference.cache
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login HWID.exe.config
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login_HWID.Login.resources
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login_HWID.Launcher.resources
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login_HWID.Properties.Resources.resources
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login_HWID.register.resources
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login HWID.csproj.GenerateResource.cache
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login HWID.csproj.CoreCompileInputs.cache
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login HWID.csproj.CopyComplete
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login HWID.exe
+D:\Dev\Launchers\LCRP\Launcher\Launcher\obj\Debug\Login HWID.pdb
