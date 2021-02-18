@@ -62,7 +62,7 @@ namespace Login_HWID
             }
             catch (Exception)
             {
-                MessageBox.Show("API is offline, contact Sofia M | Sofia_XD#7705 or wait.", "SERVER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("API is offline, contact Carter | Carter#2118 or wait.", "SERVER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LoginBTN.Text = "Login"; 
             }
         }
@@ -137,7 +137,7 @@ namespace Login_HWID
             }
             catch (Exception)
             {
-                MessageBox.Show("Impossible to get / change HWID, contact Sofia M | Sofia_XD#7705 !");
+                MessageBox.Show("Impossible to get / change HWID, contact Carter | Carter#2118 !");
                 Application.Exit();
             }
         }
@@ -166,7 +166,7 @@ namespace Login_HWID
             }
             catch (Exception)
             {
-                MessageBox.Show("API is offline, contact Sofia M | Sofia_XD#7705.", "SERVER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("API is offline, contact Carter | Carter#2118.", "SERVER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -187,7 +187,7 @@ namespace Login_HWID
             }
             catch (Exception)
             {
-                MessageBox.Show("Impossible to get / change IP, contact Sofia M | Sofia_XD#7705 !");
+                MessageBox.Show("Impossible to get / change IP, contact Carter | Carter#2118 !");
                 Application.Exit();
             }
         }
