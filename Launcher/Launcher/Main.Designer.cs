@@ -64,7 +64,7 @@
             this.webBrowser1.ScrollBarsEnabled = false;
             this.webBrowser1.Size = new System.Drawing.Size(308, 261);
             this.webBrowser1.TabIndex = 78;
-            this.webBrowser1.Url = new System.Uri("http://localhost/api/changelog.txt", System.UriKind.Absolute);
+            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // label14
             // 
@@ -194,6 +194,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.close);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(969, 586);
