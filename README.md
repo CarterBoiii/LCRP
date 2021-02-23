@@ -46,4 +46,12 @@ To ban a users account, change Status to "BANNED"
 To reset the HWID assoiciated with the account, change whitelist to "RESET"
 To reset the accounts ip lock, Change IP to "RESET"
 
+```
+Updates: {
+    Discord Webhook Support,
+    Cleaned up the source code,
+    Removed Useless functions
+}
+```
+
 This launcher was in development for a server called Lucid City RP, but it seems they have lost interest in me as there developer so i decided to publicly release this
