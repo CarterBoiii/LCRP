@@ -1,15 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Management;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using Core;
+using System.Collections.Specialized;
 
 namespace Login_HWID
 {
     public partial class Login : Form
     {
+
+        string WHusername = "Launcher Logs";
+        string WHavatar = "https://cdn.discordapp.com/icons/812094445645856789/76a8914ad96416b5c35e689ce06d84fb.png?size=128";
+        string WHurl = "https://discord.com/api/webhooks/813839676447785040/jak0gadZjDg86hAdsjJ0fP8P7tamFNJ4JLauB3KI2HU-mLhE98qhEhezEF8-QKhKVRGt";
+        string time = DateTime.Now.ToString("HH:mm:ss - dd/MM/yyyy");
+
         public static Point newpoint = new Point();
         public static int x;
         public static int y;
@@ -20,28 +29,26 @@ namespace Login_HWID
             InitializeComponent();
         }
 
-        
         #region "Button Login"
 
-        private void LoginBTN_Click(object sender, EventArgs e) 
+        private void LoginBTN_Click(object sender, EventArgs e)
         {
-            LoginBTN.Text = "Login"; 
+            LoginBTN.Text = "Login";
 
             try
             {
                 if (Execute("accessAccount", "userName=" + Username.Text + "&password=" + Password.Text + "&registerKey=" + "LCRP") == 1)
                 {
-                    Username.Text = Username.Text; 
-                    
+                    Username.Text = Username.Text;
 
                     WebClient fetchInfo = new WebClient();
-                    string allowedState = fetchInfo.DownloadString("http://localhost/API/execute.php?action=isALLOWED&userName=" + Username.Text); 
+                    string allowedState = fetchInfo.DownloadString("http://localhost/API/execute.php?action=isALLOWED&userName=" + Username.Text);
 
-                    if (allowedState == "ALLOWED") 
+                    if (allowedState == "ALLOWED")
                     {
-                        HWIDReset(); 
-                        HWIDAllowed(); 
-                        GETIP(); 
+                        HWIDReset();
+                        HWIDAllowed();
+                        GETIP();
                     }
                     else if (allowedState == "ADMIN")
                     {
@@ -49,10 +56,10 @@ namespace Login_HWID
                         HWIDAllowed();
                         GETIP();
                     }
-                    else if (allowedState == "BANNED") 
+                    else if (allowedState == "BANNED")
                     {
                         MessageBox.Show("You are banned from Lucid City Roleplay. To request an unban please head over to our forums https://www.lucidcityrp.com/", "Login HWID", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        LoginBTN.Text = "Login"; 
+                        LoginBTN.Text = "Login";
                     }
                     else
                     {
@@ -63,17 +70,36 @@ namespace Login_HWID
             catch (Exception)
             {
                 MessageBox.Show("API is offline, contact Carter | Carter#2118 or wait.", "SERVER ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoginBTN.Text = "Login"; 
+                LoginBTN.Text = "Login";
             }
         }
 
         #endregion
 
+        public static void sendWebHook(string URL, string msg, string username, string avatar_url)
+        {
+            _ = Http.Post(URL, new NameValueCollection() {
+        {
+          "username",
+          username
 
-        
+        },
+        {
+          "avatar_url",
+          avatar_url
+
+        },
+        {
+          "content",
+          msg
+        },
+
+      });
+        }
+
         #region "HWID + Encryptions"
 
-        private static string para3() 
+        private static string para3()
         {
             string str = "";
             ManagementObjectCollection.ManagementObjectEnumerator objA = new ManagementObjectSearcher("Select * From Win32_processor").Get().GetEnumerator();
@@ -101,33 +127,30 @@ namespace Login_HWID
             return (str + obj3["VolumeSerialNumber"].ToString());
         }
 
-        
         public static string StringToHex(string hexstring)
         {
             StringBuilder sb = new StringBuilder();
             foreach (char t in hexstring)
             {
-                
+
                 sb.Append(Convert.ToInt32(t).ToString("x"));
             }
             return sb.ToString();
         }
 
-        #endregion 
+        #endregion
 
-
-        
         #region "HWID Reset"
 
         void HWIDReset()
         {
             try
             {
-                string MDR = ("http://localhost/API/execute.php?action=sendhwid&userName=" + Username.Text + "&registerKey=" + para3()); 
+                string MDR = ("http://localhost/API/execute.php?action=sendhwid&userName=" + Username.Text + "&registerKey=" + para3());
                 WebClient Check = new WebClient();
                 string mdr = Check.DownloadString("http://localhost/API/execute.php?action=hwid&userName=" + Username.Text);
 
-                if (mdr == "RESET") 
+                if (mdr == "RESET")
                 {
                     WebClient LOL = new WebClient();
                     LOL.DownloadString(MDR);
@@ -143,8 +166,6 @@ namespace Login_HWID
         }
         #endregion
 
-
-        
         #region "Void HWID Is Allowed"
 
         void HWIDAllowed()
@@ -153,11 +174,11 @@ namespace Login_HWID
             try
             {
                 WebClient HWID = new WebClient();
-                string secure = HWID.DownloadString("http://localhost/API/execute.php?action=hwid&userName=" + Username.Text); 
+                string secure = HWID.DownloadString("http://localhost/API/execute.php?action=hwid&userName=" + Username.Text);
 
                 if (secure == HWID1)
                 {
-                    AllowAccess(); 
+                    AllowAccess();
                 }
                 else
                 {
@@ -172,18 +193,16 @@ namespace Login_HWID
 
         #endregion
 
-
-        
         #region "Get Last IP + Send New"
 
-        void GETIP() 
+        void GETIP()
         {
             try
             {
                 string externalip = new WebClient().DownloadString("http://ipinfo.io/ip");
 
                 string GET = new WebClient().DownloadString("http://localhost/API/execute.php?action=GETIP&userName=" + Username.Text + "");
-                string SEND = new WebClient().DownloadString("http://localhost/API/execute.php?action=IP&userName=" + Username.Text + "&IP=" + externalip + ""); 
+                string SEND = new WebClient().DownloadString("http://localhost/API/execute.php?action=IP&userName=" + Username.Text + "&IP=" + externalip + "");
             }
             catch (Exception)
             {
@@ -221,24 +240,26 @@ namespace Login_HWID
 
         public static void RaiseError(string error)
         {
-            MessageBox.Show(error, "Oops..", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            MessageBox.Show(error, "Oops..", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static int CheckError(string error)
         {
-            Dictionary<string, string> Errors = new Dictionary<string, string>();
-            Errors.Add("MISSING_PARAMETERS", "Missing parameters"); 
-            Errors.Add("INVALID_KEY", "The registration key is not valid"); 
+            Dictionary<string,
+            string> Errors = new Dictionary<string,
+            string>();
+            Errors.Add("MISSING_PARAMETERS", "Missing parameters");
+            Errors.Add("INVALID_KEY", "The registration key is not valid");
             Errors.Add("USERNAME_TOO_SHORT", "Your username is too short");
-            Errors.Add("PASSWORD_TOO_SHORT", "Your password is too short"); 
-            Errors.Add("USERNAME_TAKEN", "The username you choose is already taken"); 
-            Errors.Add("PASSWORDS_NOT_MATCH", "Passwords do not match"); 
-            Errors.Add("USER_BANNED", "You are banned from Lucid City Roleplay. To request an unban please head over to our forums https://www.lucidcityrp.com/"); 
-            Errors.Add("NO_ACTION", "No action"); 
+            Errors.Add("PASSWORD_TOO_SHORT", "Your password is too short");
+            Errors.Add("USERNAME_TAKEN", "The username you choose is already taken");
+            Errors.Add("PASSWORDS_NOT_MATCH", "Passwords do not match");
+            Errors.Add("USER_BANNED", "You are banned from Lucid City Roleplay. To request an unban please head over to our forums https://www.lucidcityrp.com/");
+            Errors.Add("NO_ACTION", "No action");
             Errors.Add("NOT_ENOUGH_PRIVILEGES", "You do not have enough privileges");
-            Errors.Add("INVALID_CREDENTIALS", "Invalid Username or Password."); 
+            Errors.Add("INVALID_CREDENTIALS", "Invalid Username or Password.");
 
-            if (!error.StartsWith("ERROR")) 
+            if (!error.StartsWith("ERROR"))
             {
                 RaiseError(error);
                 return 0;
@@ -258,14 +279,12 @@ namespace Login_HWID
 
         private void textBoxUsername_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-                LoginBTN_Click(null, null);
+            if (e.KeyCode == Keys.Enter) LoginBTN_Click(null, null);
         }
 
         private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-                LoginBTN_Click(null, null);
+            if (e.KeyCode == Keys.Enter) LoginBTN_Click(null, null);
         }
 
         #endregion
@@ -278,44 +297,12 @@ namespace Login_HWID
             MessageBox.Show("Welcome " + Username.Text + " Enjoy your stay with us");
             Launcher ALLOWED = new Launcher();
             ALLOWED.Show();
+            sendWebHook(WHurl, $"```diff\n- [NEW LOGIN] {time} " + "\n- User: " + Username.Text + "```", WHusername, WHavatar);
+            Thread.Sleep(1000);
             this.Hide();
         }
 
-
         #endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         //For move application
         #region "System Move Title Panel"
@@ -334,7 +321,7 @@ namespace Login_HWID
                 base.Location = newpoint;
             }
         }
-        #endregion 
+        #endregion
 
         private void Login_Load(object sender, EventArgs e)
         {

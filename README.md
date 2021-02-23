@@ -12,9 +12,25 @@ All API is done.
 
 Step 4
 
-Create a new account on your database use this api:
+Change all the webhook information located in the Login.cs and Register.cs
 
-http://localhost/API/execute.php?action=registerUser&userName=USERNAME&password=PASSWORD&repassword=PASSWORD&registerKey=N0QxoXM
+```
+Example:
+        string WHusername = "Launcher Logs";
+        string WHavatar = "https://cdn.discordapp.com/icons/812094445645856789/76a8914ad96416b5c35e689ce06d84fb.png?size=128";
+        string WHurl = "https://discord.com/api/webhooks/813839676447785040/jak0gadZjDg86hAdsjJ0fP8P7tamFNJ4JLauB3KI2HU-mLhE98qhEhezEF8-QKhKVRGt";
+        string time = DateTime.Now.ToString("HH:mm:ss - dd/MM/yyyy");
+```
+
+Step 5 
+
+Create a new build using visual studio.
+
+Step 6 
+
+Run the launcher and create a user and then your all set
+
+Make sure your user has been created and stored in your database
 
 Change USERNAME and PASSWORD only and press enter it's will give you the success page
 Now in your database you should see your newly created user inside the table "accounts"
