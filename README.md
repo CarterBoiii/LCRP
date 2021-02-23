@@ -19,7 +19,6 @@ Example:
         string WHusername = "Launcher Logs";
         string WHavatar = "https://cdn.discordapp.com/icons/812094445645856789/76a8914ad96416b5c35e689ce06d84fb.png?size=128";
         string WHurl = "https://discord.com/api/webhooks/813839676447785040/jak0gadZjDg86hAdsjJ0fP8P7tamFNJ4JLauB3KI2HU-mLhE98qhEhezEF8-QKhKVRGt";
-        string time = DateTime.Now.ToString("HH:mm:ss - dd/MM/yyyy");
 ```
 
 Step 5 
